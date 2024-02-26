@@ -1,0 +1,10 @@
+{
+  "name": "cookie-information-custom-template",
+  "packageManager": "yarn@4.0.2",
+  "scripts": {
+    "start": "serve"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+}
