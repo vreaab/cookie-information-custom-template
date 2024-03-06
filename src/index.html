@@ -1,0 +1,100 @@
+<div id="target"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js"></script>
+<script id="template" type="text/x-handlebars-template">
+  <h1>{{translations.banner_heading}}</h1>
+  <p>{{translations.banner_main_text}}</p>
+  <button>{{translations.accept_cookies_button}}</button>
+  <p>{{translations.cookie_declaration_text}}</p>
+  <button>{{translations.decline_cookies_button}}</button>
+  <p>{{translations.about_cookies}}</p>
+  <button>{{translations.show_details}}</button>
+  <button>{{translations.hide_details}}</button>
+  <p>{{translations.cookies_overview}}</p>
+  <button>{{translations.multiaccept}}</button>
+  <button>{{translations.multidecline}}</button>
+  <table>
+    <thead>
+      <tr>
+        <th>{{translations.cookie_name_header}}</th>
+        <th>{{translations.cookie_provider_header}}</th>
+        <th>{{translations.cookie_purpose_header}}</th>
+        <th>{{translations.cookie_expiry_header}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{translations.domain_list_explanation}}</td>
+        <td>{{translations.last_updated}}</td>
+        <td>{{translations.no_scan_performed}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <h2>{{translations.category_consent_header}}</h2>
+  <button>{{translations.update_consent_button}}</button>
+  <p>{{translations.iab_info}}</p>
+  <p>{{translations.iab_privacy_controls}}</p>
+  <button>{{translations.iab_vendors_button}}</button>
+  <p>{{translations.iab_vendors}}</p>
+  <button>{{translations.iab_full_vendors_button}}</button>
+  <p>{{translations.dp_name}}</p>
+  <p>{{translations.dp_privacy_policy}}</p>
+  <p>{{translations.dp_service_specification}}</p>
+  <button>{{translations.iab_show_vendors}}</button>
+  <button>{{translations.iab_show_purposes}}</button>
+  <p>{{translations.iab_features}}</p>
+  <p>{{translations.iab_privacy_policy}}</p>
+  <p>{{translations.iab_legitimate_purposes}}</p>
+  <p>{{translations.iab_no_cookies_in_category}}</p>
+</script>
+<script>
+  window.onload = function () {
+    //Grab the inline template
+    var template = document.getElementById("template").innerHTML;
+
+    //Compile the template
+    var compiled_template = Handlebars.compile(template);
+
+    //Render the data into the template
+    var rendered = compiled_template({
+      translations: {
+        banner_heading: "Du har kontroll över dina uppgifter",
+        banner_main_text: "Main text for the banner",
+        accept_cookies_button: "Accept Cookies",
+        cookie_declaration_text: "Cookie declaration text",
+        decline_cookies_button: "Decline Cookies",
+        about_cookies: "About Cookies",
+        show_details: "Show Details",
+        hide_details: "Hide Details",
+        cookies_overview: "Cookies Overview",
+        multiaccept: "Multi Accept",
+        multidecline: "Multi Decline",
+        cookie_name_header: "Cookie Name",
+        cookie_provider_header: "Cookie Provider",
+        cookie_purpose_header: "Cookie Purpose",
+        cookie_expiry_header: "Cookie Expiry",
+        domain_list_explanation: "Domain list explanation",
+        last_updated: "Last Updated",
+        no_scan_performed: "No scan performed",
+        category_consent_header: "Category Consent",
+        update_consent_button: "Update Consent",
+        iab_info: "IAB Info",
+        iab_privacy_controls: "IAB Privacy Controls",
+        iab_vendors_button: "IAB Vendors Button",
+        iab_vendors: "IAB Vendors",
+        iab_full_vendors_button: "IAB Full Vendors Button",
+        dp_name: "DP Name",
+        dp_privacy_policy: "DP Privacy Policy",
+        dp_service_specification: "DP Service Specification",
+        iab_show_vendors: "IAB Show Vendors",
+        iab_show_purposes: "IAB Show Purposes",
+        iab_features: "IAB Features",
+        iab_privacy_policy: "IAB Privacy Policy",
+        iab_legitimate_purposes: "IAB Legitimate Purposes",
+        iab_no_cookies_in_category: "No cookies in this category",
+      },
+    });
+
+    //Overwrite the contents of #target with the renderer HTML
+    document.getElementById("target").innerHTML = rendered;
+  };
+</script>
