@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsc --watch",
-    "serve": "serve ."
+    "serve": "serve .",
+    "prettier": "prettier --write ."
   },
   "keywords": [],
   "author": "",
@@ -13,5 +14,8 @@
   "dependencies": {
     "prettier": "^3.2.5",
     "serve": "^14.2.1"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
   }
 }

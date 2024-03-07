@@ -1,100 +1,176 @@
-<div id="target"></div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js"></script>
-<script id="template" type="text/x-handlebars-template">
-  <h1>{{translations.banner_heading}}</h1>
-  <p>{{translations.banner_main_text}}</p>
-  <button>{{translations.accept_cookies_button}}</button>
-  <p>{{translations.cookie_declaration_text}}</p>
-  <button>{{translations.decline_cookies_button}}</button>
-  <p>{{translations.about_cookies}}</p>
-  <button>{{translations.show_details}}</button>
-  <button>{{translations.hide_details}}</button>
-  <p>{{translations.cookies_overview}}</p>
-  <button>{{translations.multiaccept}}</button>
-  <button>{{translations.multidecline}}</button>
-  <table>
-    <thead>
-      <tr>
-        <th>{{translations.cookie_name_header}}</th>
-        <th>{{translations.cookie_provider_header}}</th>
-        <th>{{translations.cookie_purpose_header}}</th>
-        <th>{{translations.cookie_expiry_header}}</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{translations.domain_list_explanation}}</td>
-        <td>{{translations.last_updated}}</td>
-        <td>{{translations.no_scan_performed}}</td>
-      </tr>
-    </tbody>
-  </table>
-  <h2>{{translations.category_consent_header}}</h2>
-  <button>{{translations.update_consent_button}}</button>
-  <p>{{translations.iab_info}}</p>
-  <p>{{translations.iab_privacy_controls}}</p>
-  <button>{{translations.iab_vendors_button}}</button>
-  <p>{{translations.iab_vendors}}</p>
-  <button>{{translations.iab_full_vendors_button}}</button>
-  <p>{{translations.dp_name}}</p>
-  <p>{{translations.dp_privacy_policy}}</p>
-  <p>{{translations.dp_service_specification}}</p>
-  <button>{{translations.iab_show_vendors}}</button>
-  <button>{{translations.iab_show_purposes}}</button>
-  <p>{{translations.iab_features}}</p>
-  <p>{{translations.iab_privacy_policy}}</p>
-  <p>{{translations.iab_legitimate_purposes}}</p>
-  <p>{{translations.iab_no_cookies_in_category}}</p>
-</script>
-<script>
-  window.onload = function () {
-    //Grab the inline template
-    var template = document.getElementById("template").innerHTML;
+<!doctype html>
+<html lang="sv">
 
-    //Compile the template
-    var compiled_template = Handlebars.compile(template);
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="output.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+  <title>Document</title>
+</head>
 
-    //Render the data into the template
-    var rendered = compiled_template({
-      translations: {
-        banner_heading: "Du har kontroll över dina uppgifter",
-        banner_main_text: "Main text for the banner",
-        accept_cookies_button: "Accept Cookies",
-        cookie_declaration_text: "Cookie declaration text",
-        decline_cookies_button: "Decline Cookies",
-        about_cookies: "About Cookies",
-        show_details: "Show Details",
-        hide_details: "Hide Details",
-        cookies_overview: "Cookies Overview",
-        multiaccept: "Multi Accept",
-        multidecline: "Multi Decline",
-        cookie_name_header: "Cookie Name",
-        cookie_provider_header: "Cookie Provider",
-        cookie_purpose_header: "Cookie Purpose",
-        cookie_expiry_header: "Cookie Expiry",
-        domain_list_explanation: "Domain list explanation",
-        last_updated: "Last Updated",
-        no_scan_performed: "No scan performed",
-        category_consent_header: "Category Consent",
-        update_consent_button: "Update Consent",
-        iab_info: "IAB Info",
-        iab_privacy_controls: "IAB Privacy Controls",
-        iab_vendors_button: "IAB Vendors Button",
-        iab_vendors: "IAB Vendors",
-        iab_full_vendors_button: "IAB Full Vendors Button",
-        dp_name: "DP Name",
-        dp_privacy_policy: "DP Privacy Policy",
-        dp_service_specification: "DP Service Specification",
-        iab_show_vendors: "IAB Show Vendors",
-        iab_show_purposes: "IAB Show Purposes",
-        iab_features: "IAB Features",
-        iab_privacy_policy: "IAB Privacy Policy",
-        iab_legitimate_purposes: "IAB Legitimate Purposes",
-        iab_no_cookies_in_category: "No cookies in this category",
-      },
-    });
+<body>
+  <div id="target"></div>
+  <script id="template" type="text/x-handlebars-template">
+            <!--
+              Template name: Vrea overlay v2 - Google Consent Mode v2
+              URI: https://vrea.se
+              Version 0.0.0
+            -->
+  <div class="fixed inset-0 z-[99999] visible flex bg-black/20 justify-center items-center">
 
-    //Overwrite the contents of #target with the renderer HTML
-    document.getElementById("target").innerHTML = rendered;
-  };
-</script>
+    <div role="banner" class="rounded-xl border bg-black text-white border-[#27272A] w-[600px] p-6 space-y-6">
+      <div class="flex gap-4 justify-between items-center">
+        <h3 class="font-semibold leading-none tracking-tight">{{translations.banner_heading}}</h3>
+        <p class="text-xs">Powered by
+          <a class="underline font-semibold" href="https://cookieinformation.com/" target="_blank">Cookie
+            Information</a>
+        </p>
+      </div>
+      <p class="text-sm text-gray-300">{{translations.banner_main_text}}
+      </p>
+      <p class="text-sm text-gray-300">{{{translations.about_cookies}}}</p>
+      <p class="text-sm text-gray-300">
+
+        <a aria-label="{{google_privacy_policy_link}}" href="">{{translations.google_privacy_policy_link}}</a>
+      </p>
+      <div class="items-center flex flex-wrap gap-4 justify-between">
+        <button
+          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2">Inställningar</button>
+        <div class="flex gap-4">
+          <button
+            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2">Neka
+            alla</button>
+          <button
+            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-white text-black shadow hover:bg-white/90 h-9 px-4 py-2">Godkänn
+            alla</button>
+        </div>
+      </div>
+      <div class="border rounded-md border-[#27272A] overflow-hidden">
+        <div role="button" class="p-2">
+          <h3>
+            <button id="accordion-header-1" aria-expanded="true" aria-controls="accordion-panel-1" data-accordion-header
+              class="flex justify-between items-center w-full data-accordion-header">
+              <span>Marketing</span>
+              <div role="button" tabindex="0" aria-expanded="false" aria-controls="marketing"
+                class="bg-slate-800 relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-1 focus:ring-white focus:ring-offset-1">
+                <span class="sr-only">Use setting</span>
+                <span
+                  class="translate-x-0 pointer-events-none relative inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out">
+                  <span
+                    class="opacity-100 duration-200 ease-in absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
+                    aria-hidden="true">
+                    <svg class="h-3 w-3 text-gray-400" fill="none" viewBox="0 0 12 12">
+                      <path d="M4 8l2-2m0 0l2-2M6 6L4 4m2 2l2 2" stroke="currentColor" strokeWidth="2"
+                        strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                  <span
+                    class="opacity-0 duration-100 ease-out absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
+                    aria-hidden="true">
+                    <svg class="h-3 w-3 text-lime-500" fill="currentColor" viewBox="0 0 12 12">
+                      <path
+                        d="M3.707 5.293a1 1 0 00-1.414 1.414l1.414-1.414zM5 8l-.707.707a1 1 0 001.414 0L5 8zm4.707-3.293a1 1 0 00-1.414-1.414l1.414 1.414zm-7.414 2l2 2 1.414-1.414-2-2-1.414 1.414zm3.414 2l4-4-1.414-1.414-4 4 1.414 1.414z" />
+                    </svg>
+                  </span>
+                </span>
+              </div>
+
+            </button>
+          </h3>
+          <section id="accordion-panel-1" aria-labelledby="accordion-header-1" class="mt-4">
+            <p>cookies and services are used to deliver personalized
+              advertisements, promotions, and offers. These technologies
+              enable targeted advertising and marketing campaigns by
+              collecting information about users' interests, preferences, and
+              online activities..</p>
+          </section>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  </div>
+  </div>
+  </div>
+  </div>
+
+  </div>
+  </script>
+  <script>
+    window.onload = function () {
+      //Grab the inline template
+      var template = document.getElementById("template").innerHTML;
+
+      //Compile the template
+      var compiled_template = Handlebars.compile(template);
+
+      //Render the data into the template
+      var rendered = compiled_template({
+        translations: {
+          banner_heading: "Du har kontroll över dina uppgifter",
+          banner_main_text:
+            "Vi och våra samarbetspartner använder tekniska lösningar, bland annat kakor, för att inhämta information om dig för olika syften, däribland: Genom att klicka ”Godkänn” ger du ditt samtycke till samtliga syften. Du kan också välja att uppge vilka syften du samtycker till genom att klicka i rutan bredvid syftet och sedan ”Spara inställningar”. Du kan när som helst ta tillbaka ditt samtycke genom att klicka på den lilla ikonen i det nedre vänstra hörnet på sidan. Klicka på länken för att läsa mer om hur vi använder kakor och andra tekniska lösningar och hur vi inhämtar och behandlar personuppgifter.",
+          accept_cookies_button: "Accept Cookies",
+          cookie_declaration_text: "Cookie declaration text",
+          decline_cookies_button: "Decline Cookies",
+          about_cookies: "Läs mer om kakor",
+          show_details: "Show Details",
+          hide_details: "Hide Details",
+          cookies_overview: "Cookies Overview",
+          multiaccept: "Multi Accept",
+          multidecline: "Multi Decline",
+          cookie_name_header: "Cookie Name",
+          cookie_provider_header: "Cookie Provider",
+          cookie_purpose_header: "Cookie Purpose",
+          cookie_expiry_header: "Cookie Expiry",
+          google_privacy_policy_link:
+            "https://policies.google.com/privacy?hl=sv",
+          domain_list_explanation: "Domain list explanation",
+          last_updated: "Last Updated",
+          no_scan_performed: "No scan performed",
+          category_consent_header: "Category Consent",
+          update_consent_button: "Update Consent",
+          iab_info: "IAB Info",
+          iab_privacy_controls: "IAB Privacy Controls",
+          iab_vendors_button: "IAB Vendors Button",
+          iab_vendors: "IAB Vendors",
+          iab_full_vendors_button: "IAB Full Vendors Button",
+          dp_name: "DP Name",
+          dp_privacy_policy: "DP Privacy Policy",
+          dp_service_specification: "DP Service Specification",
+          iab_show_vendors: "IAB Show Vendors",
+          iab_show_purposes: "IAB Show Purposes",
+          iab_features: "IAB Features",
+          iab_privacy_policy: "IAB Privacy Policy",
+          iab_legitimate_purposes: "IAB Legitimate Purposes",
+          iab_no_cookies_in_category: "No cookies in this category",
+        },
+      });
+
+      //Overwrite the contents of #target with the renderer HTML
+      document.getElementById("target").innerHTML = rendered;
+      const accordionHeaders = document.querySelectorAll(
+        "[data-accordion-header]",
+      );
+      console.log("🚀 ~ accordionHeaders:", accordionHeaders);
+      Array.prototype.forEach.call(accordionHeaders, (accordionHeader) => {
+        let target = accordionHeader.parentElement.nextElementSibling;
+        accordionHeader.onclick = () => {
+          console.log("onclick");
+          let expanded =
+            accordionHeader.getAttribute("aria-expanded") === "true" || false;
+          accordionHeader.setAttribute("aria-expanded", !expanded);
+          target.hidden = expanded;
+        };
+      });
+    };
+  </script>
+</body>
+
+</html>
