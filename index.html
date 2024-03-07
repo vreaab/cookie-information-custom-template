@@ -1,0 +1,149 @@
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/main.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!--
+                  Template name: Vrea overlay v2 - Google Consent Mode v2
+                  URI: https://vrea.se
+                  Version 0.0.0
+                -->
+    <div
+      class="fixed inset-0 z-[99999] visible flex bg-black/20 justify-center items-center"
+    >
+      <div
+        role="banner"
+        class="rounded-xl border bg-black text-white border-[#27272A] w-[600px] p-6 space-y-6"
+      >
+        <div class="flex gap-4 justify-between items-center">
+
+          <h3 class="font-semibold leading-none tracking-tight">
+            {{{translations.banner_heading}}}
+          </h3>
+          <p class="text-xs">
+            Powered by
+            <a
+              class="underline font-semibold"
+              href="https://cookieinformation.com/"
+              target="_blank"
+            >Cookie Information</a>
+          </p>
+        </div>
+        <p class="text-sm text-gray-300">{{{translations.banner_main_text}}}</p>
+        <p class="text-sm text-gray-300">{{{translations.about_cookies}}}</p>
+        <p class="text-sm text-gray-300">
+          <a
+            aria-label="{{google_privacy_policy_link}}"
+            href=""
+          >{{{translations.google_privacy_policy_link}}}</a>
+        </p>
+        <div class="items-center flex flex-wrap gap-4 justify-between">
+          <button
+            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
+          >
+            Inställningar
+          </button>
+          <div class="flex gap-4">
+            <button
+              class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2"
+            >
+              Neka alla
+            </button>
+            <button
+              class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-white text-black shadow hover:bg-white/90 h-9 px-4 py-2"
+            >
+              Godkänn alla
+            </button>
+          </div>
+        </div>
+        <div class="border rounded-md border-[#27272A] overflow-hidden">
+          <div role="button" class="p-2">
+            <h3>
+              <button
+                id="accordion-header-1"
+                aria-expanded="true"
+                aria-controls="accordion-panel-1"
+                data-accordion-header
+                class="flex justify-between items-center w-full data-accordion-header"
+              >
+                <span>Marketing</span>
+                <div
+                  role="button"
+                  tabindex="0"
+                  aria-expanded="false"
+                  aria-controls="marketing"
+                  class="bg-slate-800 relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-1 focus:ring-white focus:ring-offset-1"
+                >
+                  <span class="sr-only">Use setting</span>
+                  <span
+                    class="translate-x-0 pointer-events-none relative inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
+                  >
+                    <span
+                      class="opacity-100 duration-200 ease-in absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
+                      aria-hidden="true"
+                    >
+                      <svg
+                        class="h-3 w-3 text-gray-400"
+                        fill="none"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          d="M4 8l2-2m0 0l2-2M6 6L4 4m2 2l2 2"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="opacity-0 duration-100 ease-out absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
+                      aria-hidden="true"
+                    >
+                      <svg
+                        class="h-3 w-3 text-lime-500"
+                        fill="currentColor"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          d="M3.707 5.293a1 1 0 00-1.414 1.414l1.414-1.414zM5 8l-.707.707a1 1 0 001.414 0L5 8zm4.707-3.293a1 1 0 00-1.414-1.414l1.414 1.414zm-7.414 2l2 2 1.414-1.414-2-2-1.414 1.414zm3.414 2l4-4-1.414-1.414-4 4 1.414 1.414z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </div>
+              </button>
+            </h3>
+            <section
+              id="accordion-panel-1"
+              aria-labelledby="accordion-header-1"
+              class="text-sm mt-4"
+            >
+              <p>
+                cookies and services are used to deliver personalized
+                advertisements, promotions, and offers. These technologies
+                enable targeted advertising and marketing campaigns by
+                collecting information about users' interests, preferences, and
+                online activities..
+              </p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
