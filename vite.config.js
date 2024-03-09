@@ -1,9 +1,12 @@
 // vite.config.js
+import tailwindcss from "@tailwindcss/vite";
 import { resolve } from "path";
+import { defineConfig } from "vite";
 import handlebars from "vite-plugin-handlebars";
 
-export default {
+export default defineConfig({
   plugins: [
+    tailwindcss(),
     handlebars({
       partialDirectory: resolve(__dirname, "partials"),
       context: {
@@ -49,4 +52,4 @@ export default {
       },
     }),
   ],
-};
+});
