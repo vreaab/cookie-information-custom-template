@@ -11,9 +11,9 @@ export default {
           banner_heading: "Du har kontroll över dina uppgifter",
           banner_main_text:
             "Vi och våra samarbetspartner använder tekniska lösningar, bland annat kakor, för att inhämta information om dig för olika syften, däribland: Genom att klicka ”Godkänn” ger du ditt samtycke till samtliga syften. Du kan också välja att uppge vilka syften du samtycker till genom att klicka i rutan bredvid syftet och sedan ”Spara inställningar”. Du kan när som helst ta tillbaka ditt samtycke genom att klicka på den lilla ikonen i det nedre vänstra hörnet på sidan. Klicka på länken för att läsa mer om hur vi använder kakor och andra tekniska lösningar och hur vi inhämtar och behandlar personuppgifter.",
-          accept_cookies_button: "Accept Cookies",
+          accept_cookies_button: "Godkänn alla",
           cookie_declaration_text: "Cookie declaration text",
-          decline_cookies_button: "Decline Cookies",
+          decline_cookies_button: "Neka alla",
           about_cookies: "Läs mer om kakor",
           show_details: "Show Details",
           hide_details: "Hide Details",
