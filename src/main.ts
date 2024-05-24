@@ -17,7 +17,6 @@ Array.prototype.forEach.call(accordionHeaders, (accordionHeader) => {
 });
 
 const toggleButtons = document.querySelectorAll("[data-toggle-button]");
-console.log("🚀 ~ toggleButtons:", toggleButtons);
 
 Array.prototype.forEach.call(toggleButtons, (toggleButton) => {
   toggleButton.onclick = () => {
@@ -25,3 +24,15 @@ Array.prototype.forEach.call(toggleButtons, (toggleButton) => {
     toggleButton.setAttribute("aria-checked", !checked);
   };
 });
+
+const notices = document.querySelector("[data-notices]");
+console.log("🚀 ~ notices:", notices);
+const settingsButton = document.querySelector("[data-button-settings]");
+
+settingsButton?.addEventListener("click", () => {
+  console.log("Settings button clicked");
+  // toggle show and hide notices
+  notices?.classList.toggle("hidden");
+});
+
+console.log(settingsButton);
